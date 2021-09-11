@@ -1,0 +1,5 @@
+Credentials cache: API:EC627CAC-AF05-44A1-A609-ACF980B3F7FE
+        Principal: wyu@42SEOUL.KR
+
+  Issued                Expires               Principal
+Sep  8 12:35:27 2021  Sep  8 22:35:23 2021  krbtgt/42SEOUL.KR@42SEOUL.KR
