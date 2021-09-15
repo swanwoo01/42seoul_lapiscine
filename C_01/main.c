@@ -6,9 +6,9 @@
 // #include "ex05/ft_putstr.c"
 // #include "ex06/ft_strlen.c"
 // #include "ex07/ft_rev_int_tab.c"
-#include "ex08/ft_sort_int_tab.c"
+// #include "ex08/ft_sort_int_tab.c"
 
-#include <stdio.h>
+// #include <stdio.h>
 
 // int main()
 // {
@@ -68,14 +68,14 @@
 
 // int main()
 // {
-// 	char *str = "";
+// 	char *str = "asdsadmsakd3v4ui7rwe895734526897";
 // 	ft_putstr(str);
 // 	return (0);
 // }
 
 // int main()
 // {
-// 	char *str = "";
+// 	char *str = "ashbrvwehkrbksdfnwjfanwejknfj";
 // 	int len = ft_strlen(str);
 // 	printf("%d", len);
 // 	return (0);
@@ -83,8 +83,8 @@
 
 // int main()
 // {
-// 	int tab[10] = {5,1,2,3,4,5,6,7,8};
-// 	int size = 0;
+// 	int tab[10] = {53124235,12342,-21234243,0 ,3123452,-41324123,52345,612354,73451,8213413};
+// 	int size = 10;
 
 // 	ft_rev_int_tab(tab, size);
 // 	int i;
@@ -95,8 +95,8 @@
 
 // int main()
 // {
-// 	int tab[7] = {4,2,4,56,7,9,63};
-// 	int size = 0;
+// 	int tab[9] = {413123,22134234,412345,-5612345,712345,9,6312345, -23142, 0};
+// 	int size = 9;
 
 // 	ft_sort_int_tab(tab, size);
 // 	int i;

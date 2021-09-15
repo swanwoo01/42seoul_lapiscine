@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 13:34:01 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/15 19:33:34 by wyu              ###   ########.fr       */
+/*   Created: 2021/09/15 15:45:20 by wyu               #+#    #+#             */
+/*   Updated: 2021/09/15 15:51:33 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_rev_int_tab(int *tab, int size)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int	cnt;
-	int	temp;
+	int index;
+	char *temp;
 
-	cnt = 0;
-	while (cnt < (size / 2))
+	index = 0;
+	temp = dest;
+	while(*src[index])
 	{
-		temp = tab[cnt];
-		tab[cnt] = tab[size - 1 - cnt];
-		tab[size - 1 - cnt] = temp;
-		cnt++;
+		dest[index] = src[index];
+		index++;
 	}
+	dest[index] = '\0';
+	return temp;
 }

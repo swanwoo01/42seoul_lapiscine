@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 13:34:01 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/15 19:33:34 by wyu              ###   ########.fr       */
+/*   Created: 2021/09/15 17:05:16 by wyu               #+#    #+#             */
+/*   Updated: 2021/09/15 17:10:19 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_rev_int_tab(int *tab, int size)
+int ft_isnumeric(char ch)
 {
-	int	cnt;
-	int	temp;
+	if('0' <= ch && ch <= '9')
+		return 1;
+	return 0;
+}
 
-	cnt = 0;
-	while (cnt < (size / 2))
+int ft_str_is_numeric(char *str)
+{
+	while(*str)
 	{
-		temp = tab[cnt];
-		tab[cnt] = tab[size - 1 - cnt];
-		tab[size - 1 - cnt] = temp;
-		cnt++;
+		if (!ft_isnumeric(*str))
+			return 0;
+		str++;
 	}
+	return 1;
 }

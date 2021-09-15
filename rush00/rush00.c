@@ -10,36 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-extern void	ft_putchar(char ch);
+extern void    ft_putchar(char ch);
 
-void	row_print(char first, char middle, char last, int column)
+void    row_print(char first, char middle, char last, int column)
 {
-	int	middle_count;
+    int middle_count;
+    middle_count = column - 2;
 
-	middle_count = column - 2;
-	if (column < 1)
-		return ;
-	ft_putchar(first);
-	while (middle_count > 0)
-	{
-		ft_putchar(middle);
-		middle_count--;
-	}
-	if (column > 1)
-		ft_putchar(last);
-	ft_putchar('\n');
+    if (column < 1)
+        return;
+    ft_putchar(first);
+
+    while (middle_count > 0)
+    {
+        ft_putchar(middle);
+        middle_count--;
+    }
+
+    if (column > 1)
+        ft_putchar(last);
+    ft_putchar('\n');
 }
 
-void	rush(int x, int y)
+void    rush(int x,int y)
 {
-	if (y < 1)
-		return ;
-	row_print('/', '*', '\\', x);
-	while (y - 2 > 0)
-	{
-		row_print('*', ' ', '*', x);
-		y--;
-	}
-	if (y > 1)
-		row_print('\\', '*', '/', x);
+    if (y < 1)
+        return;
+    row_print('o', '-', 'o', x);
+
+    while (y - 2 > 0)
+    {
+        row_print('|', ' ', '|', x);
+        y--;
+    }
+    if (y > 1)
+        row_print('o', '-', 'o', x);
 }

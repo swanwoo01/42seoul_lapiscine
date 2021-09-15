@@ -9,10 +9,18 @@
 /*   Updated: 2021/09/10 22:48:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
+
+
 extern void	rush(int x, int y);
 
 int	main(void)
 {
 	rush(13, 4);
 	return (0);
+}
+
+void rush(int x, int y)
+{
+	printf("%d %d", x, y);
 }

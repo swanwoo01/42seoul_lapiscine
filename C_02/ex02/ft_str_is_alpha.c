@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 13:34:01 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/15 19:33:34 by wyu              ###   ########.fr       */
+/*   Created: 2021/09/15 15:54:09 by wyu               #+#    #+#             */
+/*   Updated: 2021/09/15 17:09:15 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_rev_int_tab(int *tab, int size)
+int ft_isalpha(char ch)
 {
-	int	cnt;
-	int	temp;
+	if ('a' <= ch && ch <= 'z')
+		return 1;
+	else if ('A' <= ch && ch <= 'Z')
+		return 1;
+	return 0;
+}
 
-	cnt = 0;
-	while (cnt < (size / 2))
+int	ft_str_is_alpha(char *str)
+{
+	while(*str)
 	{
-		temp = tab[cnt];
-		tab[cnt] = tab[size - 1 - cnt];
-		tab[size - 1 - cnt] = temp;
-		cnt++;
+		if(!ft_isalpha(*str))
+			return 0;
+		str++;
 	}
+	return 1;
 }

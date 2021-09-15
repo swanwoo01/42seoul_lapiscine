@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 13:34:01 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/15 19:33:34 by wyu              ###   ########.fr       */
+/*   Created: 2021/09/15 18:08:45 by wyu               #+#    #+#             */
+/*   Updated: 2021/09/15 18:14:21 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_rev_int_tab(int *tab, int size)
+int ft_isupper(char ch)
 {
-	int	cnt;
-	int	temp;
+	if ('A' <= ch && ch <= 'Z')
+		return (1);
+	return (0);
+}
 
-	cnt = 0;
-	while (cnt < (size / 2))
+char	*ft_strlowcase(char *str)
+{
+	char	*start;
+
+	start = str;
+	while(*str)
 	{
-		temp = tab[cnt];
-		tab[cnt] = tab[size - 1 - cnt];
-		tab[size - 1 - cnt] = temp;
-		cnt++;
+		if (ft_isupper(*str))
+			*str = *str | 0x20;
+		str++;
 	}
+	return start;
 }

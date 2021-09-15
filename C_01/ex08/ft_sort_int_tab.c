@@ -6,30 +6,30 @@
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 13:42:17 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/15 12:39:21 by wyu              ###   ########.fr       */
+/*   Updated: 2021/09/15 19:36:01 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_sort_int_tab(int *tab, int size)
 {
-	int	idx1;
-	int	idx2;
+	int	left;
+	int	right;
 	int	temp;
 
-	idx1 = 0;
-	while (idx1 < size - 1)
+	left = 0;
+	while (left < size - 1)
 	{
-		idx2 = idx1 + 1;
-		while (idx2 < size)
+		right = left + 1;
+		while (right < size)
 		{
-			if (tab[idx1] > tab[idx2])
+			if (tab[left] > tab[right])
 			{
-				temp = tab[idx1];
-				tab[idx1] = tab[idx2];
-				tab[idx2] = temp;
+				temp = tab[left];
+				tab[left] = tab[right];
+				tab[right] = temp;
 			}
-			idx2++;
+			right++;
 		}
-		idx1++;
+		left++;
 	}
 }
