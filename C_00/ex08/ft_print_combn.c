@@ -43,6 +43,8 @@ void	ft_print_combn(int n)
 		print_n[cnt] = '0';
 		cnt++;
 	}
+	if (n == 1)
+		write(1, "0, ", 3);
 	while (print_n[0] != '9' - (n - 1) || print_n[n - 1] != '9')
 	{
 		print_n[n - 1]++;
@@ -54,9 +56,6 @@ void	ft_print_combn(int n)
 			cnt++;
 		}
 		if (print_n[0] != '9' - (n - 1) || print_n[n - 1] != '9')
-		{
-			ft_putchar(',');
-			ft_putchar(' ');
-		}
+			write(1, ", ", 2);
 	}
 }

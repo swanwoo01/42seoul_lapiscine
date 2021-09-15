@@ -1,10 +1,12 @@
-#include "ex00/ft_ft.c"
-#include "ex01/ft_ultimate_ft.c"
-#include "ex02/ft_swap.c"
-#include "ex03/ft_div_mod.c"
-#include "ex04/ft_ultimate_div_mod.c"
-#include "ex05/ft_putstr.c"
-#include "ex06/ft_strlen.c"
+// #include "ex00/ft_ft.c"
+// #include "ex01/ft_ultimate_ft.c"
+// #include "ex02/ft_swap.c"
+// #include "ex03/ft_div_mod.c"
+// #include "ex04/ft_ultimate_div_mod.c"
+// #include "ex05/ft_putstr.c"
+// #include "ex06/ft_strlen.c"
+// #include "ex07/ft_rev_int_tab.c"
+#include "ex08/ft_sort_int_tab.c"
 
 #include <stdio.h>
 
@@ -33,12 +35,14 @@
 // 	return (0);
 // }
 
+
 // int main()
 // {
 // 	int a = 42;
 // 	int b = 24;
+
 // 	ft_swap(&a, &b);
-// 	printf("%d %d", a, b);
+// 	printf("%d %d ", a, b);
 // 	return (0);
 // }
 
@@ -64,15 +68,39 @@
 
 // int main()
 // {
-// 	char *str = "wonwoo king"
+// 	char *str = "";
 // 	ft_putstr(str);
 // 	return (0);
 // }
 
 // int main()
 // {
-// 	char *str = "wonwoo king";
+// 	char *str = "";
 // 	int len = ft_strlen(str);
 // 	printf("%d", len);
+// 	return (0);
+// }
+
+// int main()
+// {
+// 	int tab[10] = {5,1,2,3,4,5,6,7,8};
+// 	int size = 0;
+
+// 	ft_rev_int_tab(tab, size);
+// 	int i;
+// 	for (i = 0; i < size; i++)
+// 		printf("%d ", tab[i]);
+// 	return (0);
+// }
+
+// int main()
+// {
+// 	int tab[7] = {4,2,4,56,7,9,63};
+// 	int size = 0;
+
+// 	ft_sort_int_tab(tab, size);
+// 	int i;
+// 	for(i = 0; i < size; i++)
+// 		printf("%d ", tab[i]);
 // 	return (0);
 // }

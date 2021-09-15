@@ -6,7 +6,7 @@
 // // #include "ex05/ft_print_comb.c"
 // // #include "ex06/ft_print_comb2.c"
 // // #include "ex07/ft_putnbr.c"
-// // #include "ex08/ft_print_combn.c"
+// #include "ex08/ft_print_combn.c"
 
 // int main()
 // {
@@ -18,6 +18,6 @@
 // 	// ft_print_comb(); // ex05
 // 	// ft_print_comb2(); // ex06
 // 	// ft_putnbr(0); // ex07
-// 	// ft_print_combn(9); // ex08
-// // 	return 0;
+// 	// ft_print_combn(1); // ex08
+// 	// return 0;
 // }
