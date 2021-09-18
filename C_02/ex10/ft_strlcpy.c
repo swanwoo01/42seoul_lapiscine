@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 17:17:28 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/15 21:13:33 by wyu              ###   ########.fr       */
+/*   Created: 2021/09/15 20:47:20 by wyu               #+#    #+#             */
+/*   Updated: 2021/09/18 18:22:08 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_islower(char ch)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	if ('a' <= ch && ch <= 'z')
-		return (1);
-	return (0);
-}
+	unsigned int	src_len;
+	unsigned int	i;
 
-char	*ft_strupcase(char *str)
-{
-	char	*start;
-
-	start = str;
-	while (*str)
+	src_len = 0;
+	i = 0;
+	while (src[src_len])
+		src_len++;
+	while (i < src_len && i < size - 1)
 	{
-		if (ft_islower(*str))
-			*str = (*str) ^ 0x20;
-		str++;
+		dest[i] = src[i];
+		i++;
 	}
-	return (start);
+	while (size > i)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (src_len);
 }

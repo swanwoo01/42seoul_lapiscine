@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*    ft_strlcat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 17:17:28 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/15 21:13:33 by wyu              ###   ########.fr       */
+/*   Created: 2021/09/18 20:51:22 by wyu               #+#    #+#             */
+/*   Updated: 2021/09/18 21:08:43 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_islower(char ch)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	if ('a' <= ch && ch <= 'z')
-		return (1);
-	return (0);
-}
+	unsigned int	dst_len;
+	unsigned int	src_len;
 
-char	*ft_strupcase(char *str)
-{
-	char	*start;
-
-	start = str;
-	while (*str)
+	dst_len = 0;
+	while (*dest)
 	{
-		if (ft_islower(*str))
-			*str = (*str) ^ 0x20;
-		str++;
+		dest++;
+		dst_len++;
 	}
-	return (start);
+	src_len = 0;
+	while (*src != '\0' && dst_len + src_len < size - 1)
+	{
+		*dest++ = *src++;
+		src_len++;
+	}
+	while (*src++)
+		src_len++;
+	*dest = '\0';
+	if (len <= dst_len)
+		return (src_len + len);
+	else
+		return (src_len + dst_len);
 }

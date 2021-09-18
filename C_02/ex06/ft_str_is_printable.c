@@ -6,11 +6,11 @@
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 17:14:54 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/15 17:17:00 by wyu              ###   ########.fr       */
+/*   Updated: 2021/09/18 19:11:43 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprintalbe(char ch)
+int	ft_isprintable(char ch)
 {
 	if (32 <= ch && ch != 127)
 		return (1);
@@ -19,9 +19,9 @@ int ft_isprintalbe(char ch)
 
 int	ft_str_is_printable(char *str)
 {
-	while(*str)
+	while (*str)
 	{
-		if(!ft_isprintalbe(*str))
+		if (!ft_isprintable(*str))
 			return (0);
 		str++;
 	}

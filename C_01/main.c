@@ -6,9 +6,9 @@
 // #include "ex05/ft_putstr.c"
 // #include "ex06/ft_strlen.c"
 // #include "ex07/ft_rev_int_tab.c"
-// #include "ex08/ft_sort_int_tab.c"
+#include "ex08/ft_sort_int_tab.c"
 
-// #include <stdio.h>
+#include <stdio.h>
 
 // int main()
 // {
@@ -93,14 +93,14 @@
 // 	return (0);
 // }
 
-// int main()
-// {
-// 	int tab[9] = {413123,22134234,412345,-5612345,712345,9,6312345, -23142, 0};
-// 	int size = 9;
+int main()
+{
+	int tab[9] = {413123,22134234,412345,-5612345,712345,9,6312345, -23142, 0};
+	int size = 9;
 
-// 	ft_sort_int_tab(tab, size);
-// 	int i;
-// 	for(i = 0; i < size; i++)
-// 		printf("%d ", tab[i]);
-// 	return (0);
-// }
+	ft_sort_int_tab(tab, size);
+	int i;
+	for(i = 0; i < size; i++)
+		printf("%d ", tab[i]);
+	return (0);
+}

@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*    ft_strcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 17:17:28 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/15 21:13:33 by wyu              ###   ########.fr       */
+/*   Created: 2021/09/18 20:34:53 by wyu               #+#    #+#             */
+/*   Updated: 2021/09/18 21:07:47 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_islower(char ch)
-{
-	if ('a' <= ch && ch <= 'z')
-		return (1);
-	return (0);
-}
-
-char	*ft_strupcase(char *str)
+char	*ft_strcat(char *dest, char *src)
 {
 	char	*start;
 
-	start = str;
-	while (*str)
-	{
-		if (ft_islower(*str))
-			*str = (*str) ^ 0x20;
-		str++;
-	}
+	start = dest;
+	while (*dest)
+		dest++;
+	while (*src)
+		*dest++ = *src++;
+	*dest = '\0';
 	return (start);
 }
