@@ -6,16 +6,9 @@
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 18:14:55 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/18 19:51:43 by wyu              ###   ########.fr       */
+/*   Updated: 2021/09/20 13:24:36 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_islower(char ch)
-{
-	if ('a' <= ch && ch <= 'z')
-		return (1);
-	return (0);
-}
 
 int	ft_isupper(char ch)
 {
@@ -24,47 +17,53 @@ int	ft_isupper(char ch)
 	return (0);
 }
 
-int	ft_isnumeric(char ch)
+char	*ft_strlowcase(char *str)
 {
-	if ('0' <= ch && ch <= '9')
-		return (1);
-	return (0);
+	char	*str_start;
+
+	str_start = str;
+	while (*str)
+	{
+		if (ft_isupper(*str))
+			*str = (*str) ^ 0x20;
+		str++;
+	}
+	return (str_start);
 }
 
-int	ft_isnotword(char ch)
+int	ft_strcapitalize_flag(char ch)
 {
-	if (32 <= ch && ch != 127 && \
-		!ft_islower(ch) && \
-		!ft_isupper(ch) && \
-		!ft_isnumeric(ch))
+	if (!('a' <= ch && ch <= 'z') && \
+		!('A' <= ch && ch <= 'Z') && \
+		!('0' <= ch && ch <= '9') && \
+		32 <= ch && ch != 127)
 		return (1);
 	return (0);
 }
 
 char	*ft_strcapitalize(char *str)
 {
-	char	*start;
+	char	*str_start;
 	int		flag;
+	int		str_idx;
 
-	start = str;
+	str = ft_strlowcase(str);
+	str_start = str;
 	flag = 1;
-	while (*str)
+	str_idx = 0;
+	while (str[str_idx])
 	{
-		if (flag)
+		if ('a' <= str[str_idx] && str[str_idx] <= 'z' && \
+			flag)
 		{
-			if (ft_islower(*str))
-				*str = *str ^ 0x20;
-			if (!ft_isnotword(*str))
-				flag = 0;
+			str[str_idx] = str[str_idx] ^ 0x20;
+			flag = 0;
 		}
-		else
-		{
-			if (ft_isnotword(*str))
-				flag = 1;
-			else if (ft_isupper(*str))
-				*str = *str ^ 0x20;
-		}
-		str++;
+		else if ('0' <= str[str_idx] && str[str_idx] <= '9')
+			flag = 0;
+		else if (ft_strcapitalize_flag(str[str_idx]))
+			flag = 1;
+		str_idx++;
 	}
-	return (start);
+	return (str_start);
 }

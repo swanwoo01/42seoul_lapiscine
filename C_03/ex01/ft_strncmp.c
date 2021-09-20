@@ -6,21 +6,22 @@
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 20:32:01 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/18 21:07:41 by wyu              ###   ########.fr       */
+/*   Updated: 2021/09/20 14:44:44 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	unsigned int	i;
+	unsigned int	idx;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
-	{
-		if (s1[i] != s2[i])
-			break ;
-	}
-	if (i == n)
+	if (n <= 0)
 		return (0);
-	return (s1[i] - s2[i]);
+	idx = 0;
+	while (s1[idx] && s2[idx] && idx + 1 < n)
+	{
+		if (s1[idx] != s2[idx])
+			break ;
+		idx++;
+	}
+	return (s1[idx] - s2[idx]);
 }

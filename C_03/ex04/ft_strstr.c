@@ -6,26 +6,29 @@
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 20:40:50 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/18 21:08:33 by wyu              ###   ########.fr       */
+/*   Updated: 2021/09/20 14:44:47 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int	flag;
-	int	i;
+	char	*p_str;
+	char	*p_to_find;
 
-	i = 0;
+	if (!*to_find)
+		return (str);
 	while (*str)
 	{
-		i = 0;
-		while (to_find[i] == str[i])
+		p_str = str;
+		p_to_find = to_find;
+		while (*p_to_find && *p_str == *p_to_find)
 		{
-			if (!to_find[i])
-				return (str);
-			i++;
+			p_str++;
+			p_to_find++;
 		}
+		if (!*p_to_find)
+			return (str);
 		str++;
 	}
-	return (NULL);
+	return (0);
 }
