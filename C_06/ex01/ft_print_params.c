@@ -6,7 +6,7 @@
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 17:56:17 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/22 20:57:56 by wyu              ###   ########.fr       */
+/*   Updated: 2021/09/25 10:14:56 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 		argv_len = ft_strlen(argv[idx]);
 		write(1, argv[idx], argv_len);
 		write(1, "\n", 1);
+		idx++;
 	}
 	return (0);
 }

@@ -30,7 +30,7 @@
 
 // int main() //ex03
 // {
-// 	int n = ft_atoi("1");
+// 	int n = ft_atoi("      -+1302");
 // 	printf("%d", n);
 // 	return 0;
 // }

@@ -6,16 +6,18 @@
 /*   By: wyu <wyu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 20:45:43 by wyu               #+#    #+#             */
-/*   Updated: 2021/09/22 20:58:20 by wyu              ###   ########.fr       */
+/*   Updated: 2021/09/25 10:26:34 by wyu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 int	ft_strcat(char *str1, char *str2)
 {
 	int	idx;
 
 	idx = 0;
-	while (str1[idx] && str[idx])
+	while (str1[idx] && str2[idx])
 	{
 		if (str1[idx] != str2[idx])
 			break ;

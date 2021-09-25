@@ -41,7 +41,7 @@ int	ft_atoi(char *str)
 	sign = ft_sign(&str);
 	res = 0;
 	idx = 0;
-	while ('0' < str[idx] && str[idx] <= '9')
+	while ('0' <= str[idx] && str[idx] <= '9')
 	{
 		res = res * 10 + (str[idx] - '0');
 		idx++;
