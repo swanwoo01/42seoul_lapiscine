@@ -12,99 +12,59 @@
 
 #include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_putchar(char c)
 {
-	while (*s1 != '\0' && *s2 != '\0')
-	{
-		if (*s1 != *s2)
-			break ;
-		s1++;
-		s2++;
-	}
-	return (s1 - s2);
+	write(1, &c, 1);
 }
 
-int	ft_print_base_except(int nb, char *base)
+int	ft_base_num(char *base)
 {
-	if (ft_strcmp(base, "2") \
-		&& ft_strcmp(base, "8") \
-		&& ft_strcmp(base, "10") \
-		&& ft_strcmp(base, "16"))
-		return (1);
-	if (!nb)
+	int	idx1;
+	int	idx2;
+
+	idx1 = 0;
+	while (base[idx1])
 	{
-		write(1, "0", 1);
-		return (1);
+		if (base[idx1] == '-' || base[idx1] == '+')
+			return (0);
+		idx2 = idx1 + 1;
+		while (base[idx2])
+		{
+			if (base[idx1] == base[idx2])
+				return (0);
+			idx2++;
+		}
+		idx1++;
 	}
-	else if (nb == -2147483648)
-	{
-		if (!ft_strcmp(base, "16"))
-			write(1, "-80000000", 9);
-		else if (!ft_strcmp(base, "10"))
-			write(1, "-2147483648", 11);
-		else if (!ft_strcmp(base, "8"))
-			write(1, "-npppppppppp", 12);
-		else if (!ft_strcmp(base, "2"))
-			write(1, "-10000000000000000000000000000000", 33);
-		return (1);
-	}
-	return (0);
+	if (idx1 <= 1)
+		return (0);
+	else
+		return (idx1);
 }
 
-void	ft_putnbr_base_rec(int nb, char *base, char *num_arr, int radix)
+void	ft_putnbr_base(int nbr, char *base)
 {
-	int	div;
-	int	mod;
+	int	base_num;
 
-	if (!nb)
+	base_num = ft_base_num(base);
+	if (!base_num)
 		return ;
-	mod = nb % radix;
-	div = nb / radix;
-	ft_putnbr_base_rec(div, base, num_arr, radix);
-	write(1, &num_arr[mod], 1);
-}
-
-int	ft_putnbr_base_radix(char *base, char **num_arr)
-{
-	int	radix;
-
-	if (!ft_strcmp(base, "16"))
+	if (nbr == -2147483648)
 	{
-		radix = 16;
-		*num_arr = "0123456789ABCDEF";
+		ft_putchar('-');
+		ft_putnbr_base((nbr / base_num) * -1, base);
+		ft_putchar(base[(nbr % base_num) *(-1)]);
 	}
-	else if (!ft_strcmp(base, "10"))
+	else if (nbr < 0)
 	{
-		radix = 10;
-		*num_arr = "0123456789";
+		ft_putchar('-');
+		ft_putnbr_base(nbr * -1, base);
 	}
-	else if (!ft_strcmp(base, "8"))
+	else if (nbr >= base_num)
 	{
-		radix = 8;
-		*num_arr = "poneyvif";
+		ft_putnbr_base(nbr / base_num, base);
+		ft_putchar(base[nbr % base_num]);
 	}
-	else if (!ft_strcmp(base, "2"))
-	{
-		radix = 2;
-		*num_arr = "01";
-	}
-	return (radix);
-}
-
-void	ft_putnbr_base(int nb, char *base)
-{
-	int		flag;
-	char	*num_arr;
-	int		radix;
-
-	flag = ft_print_base_except(nb, base);
-	if (flag)
-		return ;
-	radix = ft_putnbr_base_radix(base, &num_arr);
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb *= -1;
-	}
-	ft_putnbr_base_rec(nb, base, num_arr, radix);
+	else
+		ft_putchar(base[nbr]);
 }
